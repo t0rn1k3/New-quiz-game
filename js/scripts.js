@@ -33,7 +33,20 @@ let questionCount = 0;
 
 const questionText = document.querySelector('.questions-head');
 const nextBtn = document.querySelector('.next');
+const options = document.querySelector('.answers-box');
+
+nextBtn.addEventListener('click', ()=> {
+    questionCount++;
+    getQuestions(questionCount);
+})
 
 function getQuestions(index) {
-    questionText.textContent = `${questions[index].number}. ${questions[index].question}`
+    questionText.textContent = `${questions[index].number}. ${questions[index].question}`;
+
+    let optionTag = `<div class="answers"><span>A. </span><span>${questions[index].options[0]}</span></div>
+    <div class="answers"><span>B. </span><span>${questions[index].options[1]}</span></div>
+    <div class="answers"><span>C. </span><span>${questions[index].options[2]}</span></div>
+    <div class="answers"><span>D. </span><span>${questions[index].options[3]}</span></div>`;
+
+    options.innerHTML = optionTag;
 }
