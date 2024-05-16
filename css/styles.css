@@ -47,7 +47,7 @@ h1 {
     cursor: pointer;
 }
 .start-button:hover{
-    background-color: var(--color5);
+    background-color: var(--color2);
 }
 .info-container{
     position: absolute;
@@ -141,6 +141,16 @@ h2{
     padding: 20px;
     border-radius: 10px;
     position: relative;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(.9);
+}
+.questions-box.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+    transition: .3s;
+    transition-delay: .7s;
 }
 .questions-box h2 {
     padding: 0;
@@ -170,7 +180,7 @@ h2{
 }
 h3{
     margin-top: 35px;
-    font-size: 25px;
+    font-size: 20px;
 }
 .answers {
     border: 1px solid var(--color5);

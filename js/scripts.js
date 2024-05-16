@@ -3,7 +3,8 @@ const infoContainer = document.querySelector('.info-container');
 const exitButton = document.querySelector('#exitButton');
 const btnContinue = document.querySelector('#continue')
 
-const quizSection = document.querySelector('.quiz-section')
+const quizSection = document.querySelector('.quiz-section');
+const questionsBox = document.querySelector('.questions-box');
 const main = document.querySelector('.main');
 
 //open quiz guide popup
@@ -20,4 +21,19 @@ exitButton.addEventListener('click' ,()=> {
 btnContinue.addEventListener('click', ()=> {
     quizSection.classList.add('active');
     infoContainer.classList.remove('active');
+    questionsBox.classList.add('active');
+
+    getQuestions(0)
 })
+
+
+let questionCount = 0;
+
+// get all questions from array
+
+const questionText = document.querySelector('.questions-head');
+const nextBtn = document.querySelector('.next');
+
+function getQuestions(index) {
+    questionText.textContent = `${questions[index].number}. ${questions[index].question}`
+}

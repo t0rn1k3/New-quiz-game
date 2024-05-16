@@ -1,7 +1,7 @@
 const questions = [
     {
         number: 1,
-        question : "What was Charlie Parker's(Jazz musician) nickname?",
+        question : "What was Charlie Parker's (Jazz musician) nickname?",
         answer: 'Bird',
         options: [
             "Magician",
