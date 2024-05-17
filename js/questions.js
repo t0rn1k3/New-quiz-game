@@ -54,4 +54,59 @@ const questions = [
             "D. Griffin"
         ]
     },
+    {
+        number: 6,
+        question : 'According to legend, who brought chocolate in Europe?',
+        answer: 'C. Hernan Cortes',
+        options: [
+            "A. Ferdinand Magellan",
+            "B. Vasco da Gama",
+            "C. Hernan Cortes",
+            "D. John Cabot"
+        ]
+    },
+    {
+        number: 7,
+        question : 'Who hols a record for being the oldest active football player?',
+        answer: 'A. Miura Kazuyoshi',
+        options: [
+            "A. Miura Kazuyoshi",
+            "B. Gianluigi Buffon",
+            "C. Endō Yasuhito",
+            "D. Joaquín Sánchez"
+        ]
+    },
+    {
+        number: 8,
+        question : 'Which pharaoh was called Ozymandias by ancient Greeks?',
+        answer: 'B. Ramses II',
+        options: [
+            "A. Ramses I",
+            "B. Ramses II",
+            "C. Ramses III",
+            "D. Ramses IV"
+        ]
+    },
+    {
+        number: 9,
+        question : `Which company owns "Assassin's creed"?`,
+        answer: 'D. Ubisoft',
+        options: [
+            "A. EA",
+            "B. Nintendo",
+            "C. Sony",
+            "D. Ubisoft"
+        ]
+    },
+    {
+        number: 10,
+        question : 'What was a stage name of Rafael Padilla, the first black clown to play a lead role in a circus pantomime act?',
+        answer: 'C. Chocolat',
+        options: [
+            "A. African",
+            "B. Black Raffaelo",
+            "C. Chocolat",
+            "D. Django"
+        ]
+    },
 ]

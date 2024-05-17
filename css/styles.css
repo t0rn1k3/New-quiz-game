@@ -180,7 +180,8 @@ h2{
     font-size: 17px;
     background-color: var(--color5);
     color: var(--color1);
-    width: 130px;
+    width: 150px;
+    text-align: center;
     padding: 10px;
     border-radius: 7px;
     position: relative;
