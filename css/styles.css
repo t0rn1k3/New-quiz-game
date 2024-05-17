@@ -117,6 +117,21 @@ h2{
     background: var(--color2);
     color: white;
 }
+.next {
+    pointer-events: none;
+    background: var(--color1);
+    color: var(--color3);
+    border-color: var(--color2);
+}
+.next.active {
+    pointer-events: auto;
+    background-color: var(--color4);
+    color: white;
+    border-color: var(--color4);
+}
+.next.active:hover {
+    background: var(--color2);
+}
 .quiz-section {
     width: 0;
     height: 100vh;
@@ -163,7 +178,7 @@ h2{
     font-size: 17px;
     background-color: var(--color5);
     color: var(--color1);
-    width: 100px;
+    width: 130px;
     padding: 10px;
     border-radius: 7px;
     position: relative;
@@ -203,8 +218,73 @@ h3{
     color: red;
     border-color: red;
 }
+.answers.disabled {
+    pointer-events: none;
+}
 .questions-footer {
     margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.result-box {
+    width: 500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid var(--color3);
+    background-color: var(--color1);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+}
+.result-box h2 {
+    font-size: 50px;
+    color: white;
+}
+.porcentage {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0 40px;
+}
+.progress {
+    width: 250px;
+    height: 250px;
+    background: conic-gradient(#9d4edd 3.6deg, rgba(255,255,255, 0.1) 0deg);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.progress::before {
+    content: '';
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    background: var(--color1);
+    border-radius: 50%;
+}
+.progress-value {
+    font-size: 45px;
+    font-weight: bold;
+    z-index: 100;
+}
+.score-text {
+    font-size: 25px;
+    font-weight: bold;
+}
+.buttons {
+    margin-top: 20px;
+    width: 250px;
     display: flex;
     align-items: center;
     justify-content: space-between;

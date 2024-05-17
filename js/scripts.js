@@ -24,12 +24,14 @@ btnContinue.addEventListener('click', ()=> {
     questionsBox.classList.add('active');
 
     getQuestions(0);
-    questionCounter(1);
+        questionCounter(1);
+        score();
 })
 
 
 let questionCount = 0;
 let questionNumber = 1;
+let userScore = 0;
 
 // get all questions from array
 
@@ -44,6 +46,8 @@ nextBtn.addEventListener('click', ()=> {
 
         questionNumber++;
         questionCounter(questionNumber);
+
+        nextBtn.classList.remove('active');
     }else {
         console.log('completted')
     }
@@ -69,16 +73,40 @@ function getQuestions(index) {
 function optionSelected(answer) {
     let userAnswer = answer.textContent;
     let correctAnswer = questions[questionCount].answer;
+    let allOptions = options.children.length;
     if (userAnswer === correctAnswer) {
         answer.classList.add('correct');
+        userScore += 1;
+        score();
     }else {
         answer.classList.add('wrong');
+
+        //if answer is wrong , auto select correct answer
+
+        for(let i = 0; i < allOptions; i++){
+            if (options.children[i].textContent == correctAnswer) {
+                options.children[i].setAttribute('class', 'answers correct')
+            }
+        }
+    }
+
+
+    //after choose option, disable all
+    for (let i = 0; i < allOptions; i++){
+        options.children[i].classList.add('disabled');
     }
   
+    nextBtn.classList.add('active');
 }
 
 const totalQuestions = document.querySelector('#totalQuestions')
 
 function questionCounter(index) {
      totalQuestions.textContent = `${index} of ${questions.length} Question`;
+}
+
+const scoreText = document.querySelector('.counting-box');
+
+function score() {
+    scoreText.textContent = `Score : ${userScore} / ${questions.length}`;
 }
