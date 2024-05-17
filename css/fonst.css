@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Laila';
+    src: url('../fonts/Laila-Regular.woff2') format('woff2'),
+        url('../fonts/Laila-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
