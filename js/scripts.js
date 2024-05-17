@@ -3,6 +3,8 @@ const infoContainer = document.querySelector('.info-container');
 const exitButton = document.querySelector('#exitButton');
 const btnContinue = document.querySelector('#continue');
 const resultBox = document.querySelector('.result-box');
+const goHome = document.querySelector('.go-home');
+const tryAgain = document.querySelector('.try-again');
 
 const quizSection = document.querySelector('.quiz-section');
 const questionsBox = document.querySelector('.questions-box');
@@ -29,6 +31,40 @@ btnContinue.addEventListener('click', ()=> {
         score();
 })
 
+tryAgain.addEventListener('click', ()=> {
+    quizSection.classList.add('active');
+    resultBox.classList.remove('active');
+    nextBtn.classList.remove('active');
+
+    questionCount = 0;
+    questionNumber = 1;
+    userScore = 0;
+
+    getQuestions(questionCount);
+
+    questionCounter(questionNumber);
+
+    score();
+
+});
+
+goHome.addEventListener('click', ()=> {
+    quizSection.classList.remove('active');
+    main.classList.remove('active');
+    resultBox.classList.remove('active');
+    nextBtn.classList.remove('active');
+
+    questionCount = 0;
+    questionNumber = 1;
+    userScore = 0;
+
+    getQuestions(questionCount);
+
+    questionCounter(questionNumber);
+
+    score();
+
+})
 
 let questionCount = 0;
 let questionNumber = 1;
@@ -122,7 +158,7 @@ function showResult(){
     const circularProgress = document.querySelector('.progress');
     const progressValue = document.querySelector('.progress-value');
 
-    let progressStartValue = 0;
+    let progressStartValue = -1;
     let progressEndValue = (userScore / questions.length) * 100;
     let speed = 20;
 
@@ -139,3 +175,6 @@ function showResult(){
       
     }, speed);
 }
+
+
+
