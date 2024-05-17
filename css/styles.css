@@ -193,6 +193,16 @@ h3{
 .answers:hover{
     background-color: var(--color4);
 }
+.answers.correct {
+    background-color: var(--color2);
+    color: green;
+    border-color: green;
+}
+.answers.wrong {
+    background-color: var(--color2);
+    color: red;
+    border-color: red;
+}
 .questions-footer {
     margin-top: 25px;
     display: flex;

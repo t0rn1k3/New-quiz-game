@@ -23,11 +23,13 @@ btnContinue.addEventListener('click', ()=> {
     infoContainer.classList.remove('active');
     questionsBox.classList.add('active');
 
-    getQuestions(0)
+    getQuestions(0);
+    questionCounter(1);
 })
 
 
 let questionCount = 0;
+let questionNumber = 1;
 
 // get all questions from array
 
@@ -36,17 +38,47 @@ const nextBtn = document.querySelector('.next');
 const options = document.querySelector('.answers-box');
 
 nextBtn.addEventListener('click', ()=> {
-    questionCount++;
-    getQuestions(questionCount);
+    if (questionCount < questions.length - 1) {
+        questionCount++;
+        getQuestions(questionCount);
+
+        questionNumber++;
+        questionCounter(questionNumber);
+    }else {
+        console.log('completted')
+    }
+
 })
 
 function getQuestions(index) {
     questionText.textContent = `${questions[index].number}. ${questions[index].question}`;
 
-    let optionTag = `<div class="answers"><span>A. </span><span>${questions[index].options[0]}</span></div>
-    <div class="answers"><span>B. </span><span>${questions[index].options[1]}</span></div>
-    <div class="answers"><span>C. </span><span>${questions[index].options[2]}</span></div>
-    <div class="answers"><span>D. </span><span>${questions[index].options[3]}</span></div>`;
+    let optionTag = `<div class="answers">${questions[index].options[0]}</div>
+    <div class="answers">${questions[index].options[1]}</div>
+    <div class="answers">${questions[index].options[2]}</div>
+    <div class="answers">${questions[index].options[3]}</div>`;
 
     options.innerHTML = optionTag;
+
+    const option = document.querySelectorAll('.answers');
+    for(let i = 0; i < option.length; i++){
+        option[i].setAttribute('onclick', 'optionSelected(this)');
+    }
+}
+
+function optionSelected(answer) {
+    let userAnswer = answer.textContent;
+    let correctAnswer = questions[questionCount].answer;
+    if (userAnswer === correctAnswer) {
+        answer.classList.add('correct');
+    }else {
+        answer.classList.add('wrong');
+    }
+  
+}
+
+const totalQuestions = document.querySelector('#totalQuestions')
+
+function questionCounter(index) {
+     totalQuestions.textContent = `${index} of ${questions.length} Question`;
 }
